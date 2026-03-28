@@ -1,3 +1,49 @@
+// ─── EMOJI RAIN ───
+function triggerRain(emoji) {
+  // Create or reuse rain container
+  let container = document.getElementById('rainContainer');
+  if (!container) {
+    container = document.createElement('div');
+    container.id = 'rainContainer';
+    container.className = 'rain-container';
+    document.body.appendChild(container);
+  }
+
+  const count = 38;
+
+  for (let i = 0; i < count; i++) {
+    const particle = document.createElement('span');
+    particle.className = 'rain-particle';
+    particle.textContent = emoji;
+
+    // Random horizontal spread
+    const left = Math.random() * 98;
+    // Random duration & delay for natural look
+    const duration = 1.4 + Math.random() * 2.2;
+    const delay    = Math.random() * 1.2;
+    const size     = 1.1 + Math.random() * 1.2;
+
+    particle.style.left        = `${left}%`;
+    particle.style.fontSize    = `${size}rem`;
+    particle.style.animationDuration = `${duration}s`;
+    particle.style.animationDelay    = `${delay}s`;
+
+    container.appendChild(particle);
+
+    // Remove particle after animation ends
+    particle.addEventListener('animationend', () => particle.remove());
+  }
+}
+
+// Attach click handlers to strip items
+document.querySelectorAll('.strip-item').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const emoji = btn.dataset.emoji;
+    if (emoji) triggerRain(emoji);
+  });
+});
+
+// ─── HAMBURGER MENU TOGGLE ───
 // Hamburger menu toggle
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
