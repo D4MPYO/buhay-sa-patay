@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="fil">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buhay sa Patay</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ─── NAVBAR ─── -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <div class="brand">
+        <span class="brand-icon">✞</span>
+        <span class="brand-text">Buhay sa Patay</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#danas">Danas</a>
+        <a href="#gawi">Gawi</a>
+        <a href="#paniniwala">Paniniwala</a>
+        <a href="#pamahiin">Pamahiin</a>
+        <a href="#hanapbuhay">Hanapbuhay</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#danas">Danas</a>
+      <a href="#gawi">Gawi</a>
+      <a href="#paniniwala">Paniniwala</a>
+      <a href="#pamahiin">Pamahiin</a>
+      <a href="#hanapbuhay">Hanapbuhay</a>
+    </div>
+  </header>
+
+  <!-- ─── HERO ─── -->
+  <section class="hero" id="home">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <p class="hero-eyebrow">Isang Pag-aaral sa Kultura ng Puntod</p>
+      <h1 class="hero-title">Buhay<br /><span>sa Patay</span></h1>
+      <p class="hero-desc">
+        Tuklasin ang mga danas, gawi, paniniwala, at pamahiin ng mga Pilipino
+        sa loob ng sementeryo — at ang mga kabuhayan na namumukat dito.
+      </p>
+      <div class="hero-actions">
+        <a href="#danas" class="btn-primary">Simulan ang Pagbabasa</a>
+        <a href="#hanapbuhay" class="btn-ghost">Mga Hanapbuhay</a>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Mag-scroll pababa</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- ─── INTRO STRIP ─── -->
+  <section class="strip">
+    <div class="container strip-grid">
+      <div class="strip-item">
+        <span class="strip-icon">🕯️</span>
+        <p>Kultura</p>
+      </div>
+      <div class="strip-divider"></div>
+      <div class="strip-item">
+        <span class="strip-icon">🌸</span>
+        <p>Paniniwala</p>
+      </div>
+      <div class="strip-divider"></div>
+      <div class="strip-item">
+        <span class="strip-icon">⚱️</span>
+        <p>Tradisyon</p>
+      </div>
+      <div class="strip-divider"></div>
+      <div class="strip-item">
+        <span class="strip-icon">🏘️</span>
+        <p>Kabuhayan</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TOPICS SECTION ─── -->
+  <section class="topics" id="topics">
+    <div class="container">
+      <div class="section-label">Mga Paksa</div>
+      <h2 class="section-title">Ano ang Mahahanap Mo Dito?</h2>
+      <p class="section-sub">
+        Apat na pangunahing tema ang inilalahad ng proyektong ito upang mas
+        maunawaan ang kultura ng sementeryo sa Pilipinas.
+      </p>
+
+      <div class="cards-grid">
+
+        <!-- Card 1 -->
+        <article class="card" id="danas">
+          <div class="card-icon-wrap card-icon-red">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </div>
+          <span class="card-tag">01</span>
+          <h3>Danas</h3>
+          <p>
+            Ang personal na karanasan ng mga taong nabubuhay, nagtatrabaho, at
+            nagbibigay-kahulugan sa espasyong ito na tinatawag na sementeryo.
+            Paano nila nararamdaman ang presensya ng mga yumao?
+          </p>
+          <a href="#" class="card-link">Basahin pa <span>→</span></a>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="card" id="gawi">
+          <div class="card-icon-wrap card-icon-teal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <span class="card-tag">02</span>
+          <h3>Gawi</h3>
+          <p>
+            Mga kaugalian at ritwal na isinasagawa ng mga pamilya tuwing Undas
+            at sa araw-araw — mula sa pagdidilig ng lupa hanggang sa paglalagay
+            ng pagkain sa ibabaw ng puntod.
+          </p>
+          <a href="#" class="card-link">Basahin pa <span>→</span></a>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="card" id="paniniwala">
+          <div class="card-icon-wrap card-icon-olive">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <span class="card-tag">03</span>
+          <h3>Paniniwala</h3>
+          <p>
+            Ang mga relihiyosong paniniwala at espirituwal na koneksyon ng mga
+            Pilipino sa kanilang mga namatay na mahal sa buhay — kasama ang
+            papel ng panalangin at kandila.
+          </p>
+          <a href="#" class="card-link">Basahin pa <span>→</span></a>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="card" id="pamahiin">
+          <div class="card-icon-wrap card-icon-tan">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <span class="card-tag">04</span>
+          <h3>Pamahiin</h3>
+          <p>
+            Mga bawal, babala, at kaugnayang-paniniwala na naipasa sa henerasyon
+            — kung ano ang dapat gawin at hindi gawin sa loob ng sementeryo
+            para maiwasan ang masamang kapalaran.
+          </p>
+          <a href="#" class="card-link">Basahin pa <span>→</span></a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── HANAPBUHAY FEATURE SECTION ─── -->
+  <section class="feature-section" id="hanapbuhay">
+    <div class="container feature-inner">
+      <div class="feature-text">
+        <div class="section-label light">Tampok na Paksa</div>
+        <h2 class="section-title light">
+          Mga Hanapbuhay<br />sa Patay
+        </h2>
+        <p class="feature-desc">
+          Hindi lang lugar ng pagdadalamhati ang sementeryo. Para sa maraming
+          Pilipino, ito ay lugar din ng ikinabubuhay. Alamin ang iba't ibang
+          anyo ng kabuhayan na namumukat sa loob at paligid ng sementeryo —
+          mula sa pagbebenta ng bulaklak, kandila, at pagkain, hanggang sa mga
+          manggagawang nagkukumpuni ng mga puntod.
+        </p>
+        <div class="feature-highlights">
+          <div class="highlight-item">
+            <span class="highlight-dot"></span>
+            <p>Mga nagbebenta ng bulaklak at kandila</p>
+          </div>
+          <div class="highlight-item">
+            <span class="highlight-dot"></span>
+            <p>Mga manggagawa at tagapag-alaga ng puntod</p>
+          </div>
+          <div class="highlight-item">
+            <span class="highlight-dot"></span>
+            <p>Mga artisano at tagagawa ng lapida</p>
+          </div>
+          <div class="highlight-item">
+            <span class="highlight-dot"></span>
+            <p>Mga nagbibigay ng serbisyong panglibing</p>
+          </div>
+        </div>
+        <a href="#" class="btn-primary">Tuklasin ang mga Kwento</a>
+      </div>
+      <div class="feature-gallery">
+        <div class="gallery-card gc-tall">
+          <div class="gallery-placeholder gp-1">
+            <span>Mga Bulaklak</span>
+          </div>
+        </div>
+        <div class="gallery-card gc-short">
+          <div class="gallery-placeholder gp-2">
+            <span>Lapida</span>
+          </div>
+        </div>
+        <div class="gallery-card gc-short">
+          <div class="gallery-placeholder gp-3">
+            <span>Mga Kandila</span>
+          </div>
+        </div>
+        <div class="gallery-card gc-tall">
+          <div class="gallery-placeholder gp-4">
+            <span>Sining sa Puntod</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── QUOTE SECTION ─── -->
+  <section class="quote-section">
+    <div class="container">
+      <blockquote>
+        <span class="quote-mark">"</span>
+        <p>
+          Sa sementeryo, ang hangganan ng buhay at kamatayan ay manipis lamang.
+          Narito ang espasyo kung saan nagtatagpo ang dalawang mundo.
+        </p>
+        <cite>— Mula sa Pananaliksik</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ─── BOTTOM NAV / QUICK LINKS ─── -->
+  <section class="quick-nav">
+    <div class="container">
+      <h2 class="section-title center">Mag-navigate sa Pamamagitan ng Paksa</h2>
+      <div class="qnav-grid">
+        <a href="#home" class="qnav-item">
+          <div class="qnav-icon qn-red">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+          </div>
+          <span>Tahanan</span>
+        </a>
+        <a href="#danas" class="qnav-item">
+          <div class="qnav-icon qn-teal">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a3 3 0 0 1 3 3v8a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3z M19 10v3a7 7 0 0 1-14 0v-3H3v3a9 9 0 0 0 8 8.94V22H9v2h6v-2h-2v-2.06A9 9 0 0 0 21 13v-3h-2z" fill-rule="evenodd"/></svg>
+          </div>
+          <span>Danas</span>
+        </a>
+        <a href="#gawi" class="qnav-item">
+          <div class="qnav-icon qn-olive">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+          </div>
+          <span>Gawi</span>
+        </a>
+        <a href="#paniniwala" class="qnav-item">
+          <div class="qnav-icon qn-tan">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+          </div>
+          <span>Paniniwala</span>
+        </a>
+        <a href="#pamahiin" class="qnav-item">
+          <div class="qnav-icon qn-blue">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.5 2C6.81 2 3 5.81 3 10.5S6.81 19 11.5 19h.5v3c4.86-2.34 8-7 8-11.5C20 5.81 16.19 2 11.5 2zm1 14.5h-2v-2h2v2zm0-4h-2c0-3.25 3-3 3-5 0-1.1-.9-2-2-2s-2 .9-2 2h-2c0-2.21 1.79-4 4-4s4 1.79 4 4c0 2.5-3 2.75-3 5z"/></svg>
+          </div>
+          <span>Pamahiin</span>
+        </a>
+        <a href="#hanapbuhay" class="qnav-item">
+          <div class="qnav-icon qn-purple">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 6h-2.18c.07-.44.18-.88.18-1.35C18 2.51 16.49 1 14.65 1c-1.11 0-2.05.56-2.72 1.41L12 3.24l-.93-1.83C10.41 1.56 9.46 1 8.35 1 6.52 1 5 2.51 5 4.65c0 .47.11.91.18 1.35H3c-1.1 0-2 .9-2 2v13c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2z"/></svg>
+          </div>
+          <span>Hanapbuhay</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="brand-icon">✞</span>
+        <span class="brand-text">Buhay sa Patay</span>
+      </div>
+      <p class="footer-desc">
+        Isang pag-aaral sa kultura, tradisyon, at kabuhayan sa loob ng sementeryo ng Pilipinas.
+      </p>
+      <div class="footer-links">
+        <a href="#danas">Danas</a>
+        <a href="#gawi">Gawi</a>
+        <a href="#paniniwala">Paniniwala</a>
+        <a href="#pamahiin">Pamahiin</a>
+        <a href="#hanapbuhay">Hanapbuhay</a>
+      </div>
+      <p class="footer-copy">© 2026 Buhay sa Patay. Lahat ng karapatan ay nakalaan.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
