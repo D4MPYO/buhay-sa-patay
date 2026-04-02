@@ -1,0 +1,259 @@
+/* ================================================================
+   DETAIL PAGE STYLES — Buhay sa Patay
+   ================================================================ */
+
+/* ─── DETAIL HERO ─── */
+.detail-hero {
+  position: relative;
+  min-height: 52vh;
+  display: flex;
+  align-items: flex-end;
+  padding-top: 68px;
+  background:
+    url('https://images.unsplash.com/photo-1597983073494-ea9fafdcd04f?w=1600&q=80')
+    center / cover no-repeat;
+}
+
+.detail-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(14,14,14,1) 0%,
+    rgba(14,14,14,0.75) 50%,
+    rgba(14,14,14,0.5) 100%
+  );
+}
+
+.detail-hero-content {
+  position: relative;
+  padding: 60px 24px 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  transition: color 0.2s ease;
+}
+
+.back-link:hover { color: var(--accent); }
+
+.detail-hero-icon {
+  font-size: 2.8rem;
+  line-height: 1;
+}
+
+.detail-hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+  margin-top: 4px;
+}
+
+/* Tab links */
+.detail-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.detail-tab {
+  padding: 8px 20px;
+  border: 1.5px solid var(--border);
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.detail-tab:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(200,169,110,0.06);
+}
+
+/* ─── MAIN CONTENT ─── */
+.detail-main {
+  background: var(--bg);
+  padding: 80px 0 40px;
+}
+
+.detail-content {
+  max-width: 860px;
+}
+
+/* ─── SECTION BLOCK ─── */
+.detail-section {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 40px;
+  padding: 56px 0;
+}
+
+.detail-section-label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 6px;
+}
+
+.dsec-number {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.detail-section-label h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.1;
+  position: sticky;
+  top: 88px;
+}
+
+.detail-section-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.detail-section-body p {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.85;
+  text-align: justify;
+}
+
+/* ─── DIVIDER ─── */
+.detail-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 0;
+}
+
+/* ─── HANAPBUHAY NAV ─── */
+.hbnav {
+  background: var(--bg-2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 64px 0;
+  text-align: center;
+}
+
+.hbnav-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 32px;
+}
+
+.hbnav-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 36px;
+}
+
+.hbnav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  transition: transform 0.25s ease;
+  min-width: 90px;
+}
+
+.hbnav-item:not(.hbnav-item--active):hover {
+  transform: translateY(-4px);
+}
+
+.hbnav-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.35);
+}
+
+.hbnav-item span {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-align: center;
+  max-width: 90px;
+  transition: color 0.25s ease;
+}
+
+.hbnav-item:not(.hbnav-item--active):hover span {
+  color: var(--accent);
+}
+
+/* Active state */
+.hbnav-item--active {
+  cursor: default;
+  pointer-events: none;
+}
+
+.hbnav-item--active .hbnav-icon {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  box-shadow: 0 0 20px rgba(200,169,110,0.3);
+}
+
+.hbnav-item--active > span {
+  color: var(--accent);
+}
+
+
+.hbnav-footer {
+  margin-top: 8px;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 700px) {
+  .detail-section {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 40px 0;
+  }
+
+  .detail-section-label h2 {
+    position: static;
+  }
+
+  .detail-hero-title {
+    font-size: 2.6rem;
+  }
+
+  .detail-main {
+    padding: 32px 0 40px;
+  }
+}
