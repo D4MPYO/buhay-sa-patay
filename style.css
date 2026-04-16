@@ -566,7 +566,7 @@ a  { text-decoration: none; color: inherit; }
 .feature-gallery {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(3, 160px);
+  grid-template-rows: repeat(3, 200px);
   gap: 12px;
 }
 
@@ -869,13 +869,13 @@ blockquote cite {
 /* ── XL: Wide desktops (1400px+) ── */
 @media (min-width: 1400px) {
   .container { max-width: 1320px; }
-  .feature-gallery { grid-template-rows: repeat(3, 190px); }
+  .feature-gallery { grid-template-rows: repeat(3, 220px); }
 }
 
 /* ── LG: Laptop / small desktop (901px–1140px) ── */
 @media (max-width: 1140px) {
   .feature-inner { gap: 40px; }
-  .feature-gallery { grid-template-rows: repeat(3, 145px); }
+  .feature-gallery { grid-template-rows: repeat(3, 175px); }
 }
 
 /* ── MD: Tablet landscape (769px–900px) ── */

@@ -90,64 +90,139 @@
 /* ─── MAIN CONTENT ─── */
 .detail-main {
   background: var(--bg);
-  padding: 80px 0 40px;
+  padding: 64px 0 60px;
 }
 
 .detail-content {
-  max-width: 860px;
+  max-width: 1060px;
+}
+
+/* ─── NEWSPAPER MASTHEAD LINE ─── */
+.detail-content::before {
+  content: '';
+  display: block;
+  height: 4px;
+  background: linear-gradient(to right, var(--accent), transparent);
+  margin-bottom: 48px;
+  border-radius: 2px;
 }
 
 /* ─── SECTION BLOCK ─── */
 .detail-section {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 40px;
-  padding: 56px 0;
+  padding: 0 0 52px;
 }
 
+/* Section heading — newspaper article title style */
 .detail-section-label {
+  border-top: 3px solid var(--accent);
+  padding-top: 12px;
+  margin-bottom: 24px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding-top: 6px;
+  gap: 4px;
 }
 
 .dsec-number {
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--accent);
 }
 
 .detail-section-label h2 {
   font-family: 'Playfair Display', serif;
-  font-size: 1.9rem;
-  font-weight: 800;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 900;
   color: var(--text);
   line-height: 1.1;
-  position: sticky;
-  top: 88px;
+  letter-spacing: -0.01em;
 }
 
+/* ─── NEWSPAPER BODY: text + image grid ─── */
+/* ─── NEWSPAPER FLOAT BODY ─── */
 .detail-section-body {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  display: block;
+  overflow: hidden; /* clearfix */
 }
 
 .detail-section-body p {
-  font-size: 1rem;
+  font-size: 0.97rem;
   color: var(--text-muted);
-  line-height: 1.85;
+  line-height: 1.9;
   text-align: justify;
+  margin-bottom: 14px;
+}
+
+/* Drop cap */
+.detail-section-body p:first-of-type::first-letter {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.8rem;
+  font-weight: 900;
+  color: var(--accent);
+  float: left;
+  line-height: 0.75;
+  margin: 4px 10px 0 0;
+}
+
+/* Image floated into the top corner — JS adds .float-right or .float-left */
+.detail-section-body .news-img,
+.detail-section-body .news-img-placeholder {
+  width: 300px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+/* First image on the page is larger */
+.detail-section-body .news-img.news-img-first,
+.detail-section-body .news-img-placeholder.news-img-first {
+  width: 480px;
+  height: 360px;
+}
+
+.detail-section-body .news-img.float-right,
+.detail-section-body .news-img-placeholder.float-right {
+  float: right;
+  margin-left: 28px;
+  margin-right: 0;
+}
+
+.detail-section-body .news-img.float-left,
+.detail-section-body .news-img-placeholder.float-left {
+  float: left;
+  margin-right: 28px;
+  margin-left: 0;
+}
+
+/* Placeholder styling */
+.detail-section-body .news-img-placeholder {
+  background: var(--surface);
+  border: 1px dashed rgba(255,255,255,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Image caption */
+.detail-section-body .news-caption {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: -10px;
+  margin-bottom: 14px;
+  font-style: italic;
+  opacity: 0.7;
 }
 
 /* ─── DIVIDER ─── */
 .detail-divider {
-  height: 1px;
-  background: var(--border);
-  margin: 0;
+  display: none;
 }
 
 /* ─── HANAPBUHAY NAV ─── */
@@ -353,15 +428,17 @@
 }
 
 /* ─── RESPONSIVE ─── */
-@media (max-width: 700px) {
-  .detail-section {
-    grid-template-columns: 1fr;
-    gap: 16px;
-    padding: 40px 0;
+@media (max-width: 768px) {
+  .detail-section-body .news-img,
+  .detail-section-body .news-img-placeholder {
+    float: none !important;
+    width: 100%;
+    height: 200px;
+    margin: 0 0 16px 0;
   }
 
-  .detail-section-label h2 {
-    position: static;
+  .detail-section-body p:first-of-type::first-letter {
+    font-size: 2.8rem;
   }
 
   .detail-hero-title {

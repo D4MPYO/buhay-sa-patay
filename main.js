@@ -123,3 +123,40 @@ if (navbar) {
     }
   }, { passive: true });
 }
+
+// ─── NEWSPAPER LAYOUT BUILDER ───
+// Floats the image into the top corner so text wraps around it.
+// Pages 1,3,5 (odd) → section 0 starts LEFT; Pages 2,4,6 (even) → section 0 starts RIGHT.
+// First section image is larger (.news-img-first).
+(function () {
+  const sections = document.querySelectorAll('.detail-section');
+  if (!sections.length) return;
+
+  // Determine starting side from page parity attribute on <body>
+  const parity    = document.body.dataset.pageParity; // 'odd' | 'even'
+  const startLeft = parity === 'odd';
+
+  sections.forEach((section, index) => {
+    const body = section.querySelector('.detail-section-body');
+    if (!body) return;
+
+    // Use existing image or create placeholder
+    let imgEl = body.querySelector('img.news-img');
+    if (!imgEl) {
+      imgEl = document.createElement('div');
+      imgEl.className = 'news-img-placeholder';
+      imgEl.textContent = 'Larawan';
+    }
+
+    // Alternate float direction based on starting side
+    const isLeft   = startLeft ? (index % 2 === 0) : (index % 2 !== 0);
+    const floatClass = isLeft ? 'float-left' : 'float-right';
+    imgEl.classList.add(floatClass);
+
+    // First image on the page gets a larger size
+    if (index === 0) imgEl.classList.add('news-img-first');
+
+    // Insert image as FIRST child so it floats at the top
+    body.insertBefore(imgEl, body.firstChild);
+  });
+})();
