@@ -63,23 +63,33 @@ mobileMenu.querySelectorAll('a').forEach(link => {
 const sections  = document.querySelectorAll('section[id]');
 const navLinks  = document.querySelectorAll('.nav-links a, .mobile-menu a');
 
+const sectionNavMap = {
+  'home':        '#home',
+  'topics':      '#topics',
+  'hanapbuhay':  '#hanapbuhay',
+};
+
 const observer = new IntersectionObserver(
   entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
+        const href = sectionNavMap[entry.target.id];
+        if (!href) return;
         navLinks.forEach(a => a.classList.remove('active'));
-        const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+        const active = document.querySelector(`.nav-links a[href="${href}"]`);
         if (active) active.classList.add('active');
       }
     });
   },
-  { threshold: 0.4 }
+  { rootMargin: '-40% 0px -55% 0px', threshold: 0 }
 );
 
 sections.forEach(s => observer.observe(s));
 
 // Subtle fade-in on scroll for cards
-const fadeEls = document.querySelectorAll('.card, .qnav-item, .feature-text, .feature-gallery');
+const fadeEls = document.querySelectorAll(
+  '.card, .qnav-item, .feature-text, .feature-gallery, .rcard, .researchers-page-intro'
+);
 
 const fadeObserver = new IntersectionObserver(
   entries => {
@@ -94,9 +104,22 @@ const fadeObserver = new IntersectionObserver(
   { threshold: 0.15 }
 );
 
-fadeEls.forEach(el => {
-  el.style.opacity   = '0';
-  el.style.transform = 'translateY(20px)';
-  el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+fadeEls.forEach((el, i) => {
+  el.style.opacity    = '0';
+  el.style.transform  = 'translateY(28px)';
+  el.style.transition = `opacity 0.6s ease ${i * 0.08}s, transform 0.6s ease ${i * 0.08}s`;
   fadeObserver.observe(el);
 });
+
+// ─── NAVBAR SHRINK ON SCROLL ───
+const navbar = document.querySelector('.navbar');
+if (navbar) {
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      navbar.style.transition = 'background 0.35s ease, backdrop-filter 0.35s ease';
+      navbar.style.background = 'rgba(14,14,14,0.72)';
+    } else {
+      navbar.style.background = 'rgba(14,14,14,0.45)';
+    }
+  }, { passive: true });
+}

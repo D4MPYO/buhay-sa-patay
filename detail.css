@@ -168,6 +168,121 @@
   margin-bottom: 32px;
 }
 
+/* ================================================================
+   MANANALIKSIK PAGE
+   ================================================================ */
+.researchers-page-intro {
+  max-width: 680px;
+  margin: 0 auto 56px;
+  text-align: center;
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+.researchers-grid-page {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 28px;
+  padding-bottom: 60px;
+}
+
+.rcard {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  width: 280px;
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rcard:hover {
+  border-color: rgba(200,169,110,0.4);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.45);
+}
+
+.rcard--professor {
+  border-color: rgba(200,169,110,0.3);
+  background: rgba(200,169,110,0.05);
+  width: 310px;
+  padding: 48px 36px;
+}
+
+.rcard-avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rcard--professor .rcard-avatar {
+  width: 116px;
+  height: 116px;
+  border-color: var(--accent);
+}
+
+.rcard-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rcard-initials {
+  font-size: 2.4rem;
+}
+
+.rcard--professor .rcard-initials {
+  font-size: 2.8rem;
+}
+
+.rcard-role {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.rcard-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.rcard--professor .rcard-name {
+  font-size: 1.45rem;
+}
+
+.rcard-sub {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.rcard-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .rcard, .rcard--professor { width: 100%; max-width: 360px; }
+}
+
 .hbnav-grid {
   display: flex;
   justify-content: center;

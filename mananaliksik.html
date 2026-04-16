@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fil">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mga Mananaliksik — Buhay sa Patay</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="detail.css" />
+</head>
+<body>
+
+  <!-- ─── NAVBAR ─── -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <div class="brand">
+        <a href="index.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;">
+          <span class="brand-icon">✞</span>
+          <span class="brand-text">Buhay sa Patay</span>
+        </a>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">Tahanan</a>
+        <a href="index.html#topics">Mga Paksa</a>
+        <a href="index.html#hanapbuhay">Hanapbuhay</a>
+        <a href="mananaliksik.html" class="active">Mga Mananaliksik</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Tahanan</a>
+      <a href="index.html#topics">Mga Paksa</a>
+      <a href="index.html#hanapbuhay">Hanapbuhay</a>
+      <a href="mananaliksik.html">Mga Mananaliksik</a>
+    </div>
+  </header>
+
+  <!-- ─── HERO ─── -->
+  <section class="detail-hero" style="background-image:url('Assets/bg_2.jpg');">
+    <div class="detail-hero-overlay"></div>
+    <div class="container detail-hero-content">
+      <p class="detail-hero-label">Buhay sa Patay</p>
+      <h1 class="detail-hero-title">Mga Mananaliksik</h1>
+      <p class="detail-hero-sub">Ang mga taong nasa likod ng pag-aaral na ito.</p>
+    </div>
+  </section>
+
+  <!-- ─── MAIN CONTENT ─── -->
+  <main class="detail-main">
+    <div class="container">
+
+      <div class="researchers-page-intro">
+        <p>Ang pag-aaral na ito ay isinagawa ng mga sumusunod na mananaliksik bilang bahagi ng kanilang akademikong gawain tungkol sa kultura, kabuhayan, at tradisyon sa loob ng sementeryo ng Daet, Camarines Norte.</p>
+      </div>
+
+      <div class="researchers-grid-page">
+
+        <!-- Student 1 -->
+        <div class="rcard">
+          <div class="rcard-avatar">
+            <!-- TODO: Palitan ng <img src="Assets/student1.jpg" alt="..."> kapag may litrato na -->
+            <span class="rcard-initials">👤</span>
+          </div>
+          <div class="rcard-body">
+            <span class="rcard-role">Mag-aaral</span>
+            <h2 class="rcard-name"><!-- TODO: Buong Pangalan ng Student 1 --></h2>
+            <p class="rcard-sub"><!-- TODO: Kurso, Taon, Seksyon --></p>
+            <p class="rcard-desc"><!-- TODO: Maikling paglalarawan (opsyonal) --></p>
+          </div>
+        </div>
+
+        <!-- Professor -->
+        <div class="rcard rcard--professor">
+          <div class="rcard-avatar">
+            <!-- TODO: Palitan ng <img src="Assets/professor.jpg" alt="..."> kapag may litrato na -->
+            <span class="rcard-initials">👤</span>
+          </div>
+          <div class="rcard-body">
+            <span class="rcard-role">Guro / Propesor</span>
+            <h2 class="rcard-name"><!-- TODO: Buong Pangalan ng Propesor --></h2>
+            <p class="rcard-sub"><!-- TODO: Departamento / Kolehiyo --></p>
+            <p class="rcard-desc"><!-- TODO: Maikling paglalarawan (opsyonal) --></p>
+          </div>
+        </div>
+
+        <!-- Student 2 -->
+        <div class="rcard">
+          <div class="rcard-avatar">
+            <!-- TODO: Palitan ng <img src="Assets/student2.jpg" alt="..."> kapag may litrato na -->
+            <span class="rcard-initials">👤</span>
+          </div>
+          <div class="rcard-body">
+            <span class="rcard-role">Mag-aaral</span>
+            <h2 class="rcard-name"><!-- TODO: Buong Pangalan ng Student 2 --></h2>
+            <p class="rcard-sub"><!-- TODO: Kurso, Taon, Seksyon --></p>
+            <p class="rcard-desc"><!-- TODO: Maikling paglalarawan (opsyonal) --></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="brand-icon">✞</span>
+        <span class="brand-text">Buhay sa Patay</span>
+      </div>
+      <p class="footer-desc">
+        Isang pag-aaral sa kultura, tradisyon, at kabuhayan sa loob ng sementeryo ng Pilipinas.
+      </p>
+      <div class="footer-links">
+        <a href="index.html">Tahanan</a>
+        <a href="index.html#topics">Mga Paksa</a>
+        <a href="index.html#hanapbuhay">Hanapbuhay</a>
+        <a href="mananaliksik.html">Mga Mananaliksik</a>
+      </div>
+      <p class="footer-copy">© 2026 Buhay sa Patay. Lahat ng karapatan ay nakalaan.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
