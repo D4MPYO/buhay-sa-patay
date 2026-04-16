@@ -87,6 +87,12 @@
   background: rgba(200,169,110,0.06);
 }
 
+.detail-tab.active-tab {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(200,169,110,0.12);
+}
+
 /* ─── MAIN CONTENT ─── */
 .detail-main {
   background: var(--bg);
