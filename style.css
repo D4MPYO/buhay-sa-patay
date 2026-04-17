@@ -78,8 +78,12 @@ a  { text-decoration: none; color: inherit; }
 }
 
 .brand-icon {
-  font-size: 20px;
-  color: var(--accent);
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
 }
 
 .brand-text {
@@ -923,6 +927,24 @@ blockquote cite {
   align-items: center;
   text-align: center;
   gap: 20px;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-brand .brand-icon {
+  width: 52px;
+  height: 52px;
+  border: 2px solid rgba(180,145,60,0.45);
+  box-shadow: 0 0 12px rgba(180,145,60,0.2);
+}
+
+.footer-brand .brand-text {
+  font-size: 1.1rem;
 }
 
 .footer-desc {
