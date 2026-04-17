@@ -32,7 +32,7 @@
         <span></span><span></span><span></span>
       </button>
     </div>
-    <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu" id="mobileMenu"><div class="mobile-menu-inner"><div class="mobile-menu-inner">
       <a href="index.html">Tahanan</a>
       <a href="index.html#topics">Mga Paksa</a>
       <a href="index.html#hanapbuhay">Hanapbuhay</a>
@@ -51,55 +51,71 @@
   </section>
 
   <!-- â”€â”€â”€ MAIN CONTENT â”€â”€â”€ -->
-  <main class="detail-main">
+    <!-- ─── MAIN CONTENT ─── -->
+  <main class="detail-main researchers-main">
     <div class="container">
 
       <div class="researchers-page-intro">
         <p>Ang pag-aaral na ito ay isinagawa ng mga sumusunod na mananaliksik bilang bahagi ng kanilang akademikong gawain tungkol sa kultura, kabuhayan, at tradisyon sa loob ng sementeryo ng Daet, Camarines Norte.</p>
       </div>
 
-      <div class="researchers-grid-page">
+      <div class="lapida-grid">
 
-        <!-- Student 1 -->
-        <div class="rcard">
-          <div class="rcard-avatar">
-            <!-- TODO: Palitan ng <img src="Assets/student1.jpg" alt="..."> kapag may litrato na -->
-            <span class="rcard-initials">👤</span>
+        <!-- Researcher 1 — John R. Papares -->
+        <div class="lapida-card" data-modal="modal-papares" role="button" tabindex="0">
+          <div class="lapida-top-cross">✞</div>
+          <div class="lapida-stone">
+            <div class="lapida-arch"></div>
+            <div class="lapida-inner">
+              <img class="lapida-photo" src="Assets/Mananaliksik_Papares.jpg" alt="John R. Papares">
+              <p class="lapida-role">Mananaliksik</p>
+              <h2 class="lapida-name">John R. Papares</h2>
+              <div class="lapida-rule"></div>
+              <p class="lapida-dates">Hunyo 25, 2005</p>
+              <p class="lapida-sub">BSEd — Filipino<br>CNSC, Kolehiyo ng Edukasyon</p>
+              <div class="lapida-rule lapida-rule--thin"></div>
+              <p class="lapida-desc">Mula Guinacutan, Vinzons, Camarines Norte.</p>
+            </div>
           </div>
-          <div class="rcard-body">
-            <span class="rcard-role">Mag-aaral</span>
-            <h2 class="rcard-name"><!-- TODO: Buong Pangalan ng Student 1 --></h2>
-            <p class="rcard-sub"><!-- TODO: Kurso, Taon, Seksyon --></p>
-            <p class="rcard-desc"><!-- TODO: Maikling paglalarawan (opsyonal) --></p>
-          </div>
+          <div class="lapida-base"></div>
         </div>
 
-        <!-- Professor -->
-        <div class="rcard rcard--professor">
-          <div class="rcard-avatar">
-            <!-- TODO: Palitan ng <img src="Assets/professor.jpg" alt="..."> kapag may litrato na -->
-            <span class="rcard-initials">👤</span>
+        <!-- Adviser — Dr. Ryan S. Rodriguez -->
+        <div class="lapida-card lapida-card--adviser" data-modal="modal-rodriguez" role="button" tabindex="0">
+          <div class="lapida-top-cross lapida-top-cross--gold">✞</div>
+          <div class="lapida-stone lapida-stone--adviser">
+            <div class="lapida-arch lapida-arch--gold"></div>
+            <div class="lapida-inner">
+              <img class="lapida-photo lapida-photo--gold" src="Assets/Propesor_Rodriguez.jpg" alt="Dr. Ryan S. Rodriguez">
+              <p class="lapida-role lapida-role--gold">Propesor</p>
+              <h2 class="lapida-name">Dr. Ryan S. Rodriguez</h2>
+              <div class="lapida-rule lapida-rule--gold"></div>
+              <p class="lapida-dates">Ph.D. sa Filipino</p>
+              <p class="lapida-sub">Camarines Norte State College<br>Kolehiyo ng Edukasyon</p>
+              <div class="lapida-rule lapida-rule--thin lapida-rule--gold"></div>
+              <p class="lapida-desc">Ph.D. sa Filipino, Bicol University (2024). Magna Cum Laude, Best Dissertation.</p>
+            </div>
           </div>
-          <div class="rcard-body">
-            <span class="rcard-role">Guro / Propesor</span>
-            <h2 class="rcard-name"><!-- TODO: Buong Pangalan ng Propesor --></h2>
-            <p class="rcard-sub"><!-- TODO: Departamento / Kolehiyo --></p>
-            <p class="rcard-desc"><!-- TODO: Maikling paglalarawan (opsyonal) --></p>
-          </div>
+          <div class="lapida-base lapida-base--gold"></div>
         </div>
 
-        <!-- Student 2 -->
-        <div class="rcard">
-          <div class="rcard-avatar">
-            <!-- TODO: Palitan ng <img src="Assets/student2.jpg" alt="..."> kapag may litrato na -->
-            <span class="rcard-initials">👤</span>
+        <!-- Researcher 2 — Rose Ann M. Cruel -->
+        <div class="lapida-card" data-modal="modal-cruel" role="button" tabindex="0">
+          <div class="lapida-top-cross">✞</div>
+          <div class="lapida-stone">
+            <div class="lapida-arch"></div>
+            <div class="lapida-inner">
+              <img class="lapida-photo" src="Assets/Mananaliksik_Cruel.jpg" alt="Rose Ann M. Cruel">
+              <p class="lapida-role">Mananaliksik</p>
+              <h2 class="lapida-name">Rose Ann M. Cruel</h2>
+              <div class="lapida-rule"></div>
+              <p class="lapida-dates">20 Taong Gulang</p>
+              <p class="lapida-sub">BSEd — Filipino<br>CNSC, Kolehiyo ng Edukasyon</p>
+              <div class="lapida-rule lapida-rule--thin"></div>
+              <p class="lapida-desc">Mula Bagumbayan, Paracale, Camarines Norte.</p>
+            </div>
           </div>
-          <div class="rcard-body">
-            <span class="rcard-role">Mag-aaral</span>
-            <h2 class="rcard-name"><!-- TODO: Buong Pangalan ng Student 2 --></h2>
-            <p class="rcard-sub"><!-- TODO: Kurso, Taon, Seksyon --></p>
-            <p class="rcard-desc"><!-- TODO: Maikling paglalarawan (opsyonal) --></p>
-          </div>
+          <div class="lapida-base"></div>
         </div>
 
       </div>
@@ -126,7 +142,57 @@
     </div>
   </footer>
 
+  <!-- MODALS -->
+  <div class="researcher-modal" id="modal-papares" role="dialog" aria-modal="true" aria-labelledby="modal-papares-title">
+    <div class="researcher-modal__overlay"></div>
+    <div class="researcher-modal__box">
+      <canvas class="modal-spider-canvas"></canvas>
+      <button class="researcher-modal__close" aria-label="Isara">&times;</button>
+      <img class="researcher-modal__photo" src="Assets/Mananaliksik_Papares.jpg" alt="John R. Papares">
+      <p class="researcher-modal__role">Mananaliksik</p>
+      <h2 class="researcher-modal__name" id="modal-papares-title">John R. Papares</h2>
+      <div class="researcher-modal__rule"></div>
+      <div class="researcher-modal__body">
+        <p>Si John R. Papares ay kasalukuyang kumukuha ng kursong Batsilyer ng Pansekundaryang Edukasyon medyor sa Filipino sa Camarines Norte State College&#8211;Abano Campus. Ipinanganak siya noong Hunyo 25, 2005 sa Daet, Camarines Norte at kasalukuyang naninirahan sa P-3 Guinacutan, Vinzons, Camarines Norte.</p>
+        <p>Natapos niya ang kanyang sekundaryang edukasyon sa Vinzons Pilot High School noong 2023 at ang kanyang elementarya sa Guinacutan Elementary School noong 2017. Bilang isang mag-aaral sa larangan ng edukasyon, nakatuon ang kanyang interes sa pagpapalawak ng kaalaman sa wikang Filipino at sa epektibong pagtuturo nito sa mga mag-aaral. Layunin niyang maging isang mahusay at responsableng guro na makatutulong sa paghubog ng kakayahan at pagpapahalaga ng kabataang Pilipino.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="researcher-modal" id="modal-rodriguez" role="dialog" aria-modal="true" aria-labelledby="modal-rodriguez-title">
+    <div class="researcher-modal__overlay"></div>
+    <div class="researcher-modal__box researcher-modal__box--gold">
+      <canvas class="modal-spider-canvas"></canvas>
+      <button class="researcher-modal__close researcher-modal__close--gold" aria-label="Isara">&times;</button>
+      <img class="researcher-modal__photo researcher-modal__photo--gold" src="Assets/Propesor_Rodriguez.jpg" alt="Dr. Ryan S. Rodriguez">
+      <p class="researcher-modal__role researcher-modal__role--gold">Propesor</p>
+      <h2 class="researcher-modal__name" id="modal-rodriguez-title">Dr. Ryan S. Rodriguez</h2>
+      <div class="researcher-modal__rule researcher-modal__rule--gold"></div>
+      <div class="researcher-modal__body">
+        <p>Si Dr. Ryan S. Rodriguez ay isang Tagapayo at ganap na Doktor ng Pilosopiya sa Filipino. Nagtapos siya ng Batsilyer sa Pansekundaryang Edukasyon major sa Filipino noong 2005 sa La Consolacion College&#8211;Daet. Ipinagpatuloy niya ang kanyang pag-aaral at nakamit ang Master of Arts in Education major sa Filipino sa Universidad de Santa Isabel sa Lungsod ng Naga.</p>
+        <p>Sa kanyang akademikong paglalakbay, nakatanggap siya ng mga parangal tulad ng Magna Cum Laude, Best Thesis, at Best Presenter noong 2016. Taong 2024 nang kanyang makamit ang Doctor of Philosophy in Filipino sa Bicol University sa Lungsod ng Legazpi, kung saan kinilala rin ang kanyang disertasyon bilang pinakamahusay.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="researcher-modal" id="modal-cruel" role="dialog" aria-modal="true" aria-labelledby="modal-cruel-title">
+    <div class="researcher-modal__overlay"></div>
+    <div class="researcher-modal__box">
+      <canvas class="modal-spider-canvas"></canvas>
+      <button class="researcher-modal__close" aria-label="Isara">&times;</button>
+      <img class="researcher-modal__photo" src="Assets/Mananaliksik_Cruel.jpg" alt="Rose Ann M. Cruel">
+      <p class="researcher-modal__role">Mananaliksik</p>
+      <h2 class="researcher-modal__name" id="modal-cruel-title">Rose Ann M. Cruel</h2>
+      <div class="researcher-modal__rule"></div>
+      <div class="researcher-modal__body">
+        <p>Si Rose Ann M. Cruel, dalawampung (20) taong gulang at nagmula sa Barangay Bagumbayan, sa Bayan ng Paracale, Camarines Norte. Nagtapos siya ng elementarya sa Bagumbayan Elementary School, at sekondarya sa Paracale National High School, nagtapos ng may karangalan at kasalukuyang nagpapakadalubhasa sa Batsilyer ng Sekondaryang Edukasyon medyor sa Filipino sa Camarines Norte State College, Kolehiyo ng edukasyon.</p>
+        <p>Siya ay mahilig sumayaw, umawit nagnanais na mapalawak ang kaalaman sa larangan ng Filipino. Naniniwala siyang sa bawat hanapbuhay, may gawain at danas na nakahimlay, na nagpapatunay at ang ating kultura&#8217;y binubuhay tungo sa magandang hinaharap, nang may tiyaga, sipag at pagsisikap.</p>
+      </div>
+    </div>
+  </div>
+
   <script src="main.js"></script>
+  <script src="spider.js"></script>
 </body>
 </html>
 

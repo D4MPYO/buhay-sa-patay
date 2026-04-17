@@ -370,118 +370,216 @@
 }
 
 /* ================================================================
-   MANANALIKSIK PAGE
+   MANANALIKSIK PAGE — LAPIDA / GRAVESTONE STYLE
    ================================================================ */
+.researchers-main { padding: 60px 0 80px; }
+
 .researchers-page-intro {
-  max-width: 680px;
-  margin: 0 auto 56px;
+  max-width: 640px;
+  margin: 0 auto 64px;
   text-align: center;
   font-size: 1rem;
   color: var(--text-muted);
   line-height: 1.8;
 }
 
-.researchers-grid-page {
+.lapida-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 28px;
+  align-items: flex-end;
+  gap: 40px;
   padding-bottom: 60px;
+  position: relative;
+  z-index: 1;
 }
 
-.rcard {
-  background: var(--bg-2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 40px 32px;
+/* ── Single gravestone card ── */
+.lapida-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  gap: 20px;
-  width: 280px;
-  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  width: 260px;
+  cursor: pointer;
 }
 
-.rcard:hover {
-  border-color: rgba(200,169,110,0.4);
-  transform: translateY(-6px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.45);
+.lapida-card--adviser {
+  width: 300px;
+  order: 0; /* stays in middle (2nd in HTML) */
 }
 
-.rcard--professor {
-  border-color: rgba(200,169,110,0.3);
-  background: rgba(200,169,110,0.05);
-  width: 310px;
-  padding: 48px 36px;
+/* Cross on top */
+.lapida-top-cross {
+  font-size: 1.6rem;
+  color: #8a8a8a;
+  margin-bottom: -6px;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6));
 }
+.lapida-top-cross--gold { color: var(--accent); }
 
-.rcard-avatar {
-  width: 96px;
-  height: 96px;
-  border-radius: 50%;
-  background: var(--surface);
-  border: 2px solid var(--border);
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.rcard--professor .rcard-avatar {
-  width: 116px;
-  height: 116px;
-  border-color: var(--accent);
-}
-
-.rcard-avatar img {
+/* The stone body */
+.lapida-stone {
   width: 100%;
-  height: 100%;
+  background: linear-gradient(160deg, #2e2e2e 0%, #1a1a1a 60%, #222 100%);
+  border: 1px solid #3a3a3a;
+  border-radius: 50% 50% 4px 4px / 28px 28px 4px 4px;
+  box-shadow:
+    inset 0 2px 8px rgba(255,255,255,0.04),
+    inset 0 -4px 12px rgba(0,0,0,0.5),
+    0 8px 32px rgba(0,0,0,0.6),
+    0 2px 0 #111;
+  position: relative;
+  overflow: hidden;
+}
+
+.lapida-stone--adviser {
+  background: linear-gradient(160deg, #2a2519 0%, #1c1a10 60%, #211f10 100%);
+  border-color: rgba(200,169,110,0.3);
+  box-shadow:
+    inset 0 2px 8px rgba(200,169,110,0.06),
+    inset 0 -4px 12px rgba(0,0,0,0.5),
+    0 8px 40px rgba(0,0,0,0.7),
+    0 2px 0 #0a0900;
+}
+
+/* Arch engraving at top of stone */
+.lapida-arch {
+  height: 6px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  margin: 0 12px;
+}
+.lapida-arch--gold {
+  background: linear-gradient(90deg, transparent, rgba(200,169,110,0.1), transparent);
+  border-bottom-color: rgba(200,169,110,0.1);
+}
+
+/* Inner text area */
+.lapida-inner {
+  padding: 24px 24px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+/* Profile photo */
+.lapida-photo {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
   object-fit: cover;
+  object-position: top;
+  border: 3px solid #555;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.55);
+  margin-bottom: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.lapida-photo--gold {
+  border-color: var(--accent);
+  box-shadow: 0 4px 18px rgba(180,145,60,0.4);
 }
 
-.rcard-initials {
-  font-size: 2.4rem;
-}
-
-.rcard--professor .rcard-initials {
-  font-size: 2.8rem;
-}
-
-.rcard-role {
-  font-size: 0.72rem;
+.lapida-role {
+  font-size: 0.65rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: #7a7a7a;
+  margin: 0;
 }
+.lapida-role--gold { color: var(--accent); opacity: 0.85; }
 
-.rcard-name {
+.lapida-name {
   font-family: 'Playfair Display', serif;
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 700;
-  color: var(--text);
+  color: #d4d0c8;
   line-height: 1.3;
+  margin: 0;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+  letter-spacing: 0.02em;
 }
 
-.rcard--professor .rcard-name {
-  font-size: 1.45rem;
+.lapida-card--adviser .lapida-name {
+  font-size: 1.3rem;
+  color: #e8e0cc;
 }
 
-.rcard-sub {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  font-weight: 500;
+.lapida-rule {
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #444, transparent);
+  margin: 4px 0;
+}
+.lapida-rule--thin { opacity: 0.5; }
+.lapida-rule--gold {
+  background: linear-gradient(90deg, transparent, rgba(200,169,110,0.5), transparent);
 }
 
-.rcard-desc {
-  font-size: 0.88rem;
-  color: var(--text-muted);
+.lapida-dates {
+  font-size: 0.78rem;
+  color: #6a6a6a;
+  font-style: italic;
+  margin: 0;
+}
+
+.lapida-sub {
+  font-size: 0.8rem;
+  color: #888;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.lapida-desc {
+  font-size: 0.8rem;
+  color: #666;
   line-height: 1.7;
+  margin: 4px 0 0;
 }
 
-@media (max-width: 768px) {
-  .rcard, .rcard--professor { width: 100%; max-width: 360px; }
+/* Stone base / slab */
+.lapida-base {
+  width: 110%;
+  height: 14px;
+  background: linear-gradient(180deg, #252525 0%, #1a1a1a 100%);
+  border: 1px solid #333;
+  border-top: none;
+  border-radius: 0 0 3px 3px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5), 0 2px 0 #111;
+}
+.lapida-base--gold {
+  background: linear-gradient(180deg, #1e1a08 0%, #141200 100%);
+  border-color: rgba(200,169,110,0.2);
+}
+
+/* Hover lift */
+.lapida-card:hover .lapida-stone {
+  transform: translateY(-6px);
+  transition: transform 0.3s ease;
+  box-shadow:
+    inset 0 2px 8px rgba(255,255,255,0.05),
+    inset 0 -4px 12px rgba(0,0,0,0.5),
+    0 16px 48px rgba(0,0,0,0.7),
+    0 2px 0 #111;
+}
+.lapida-card:hover .lapida-base {
+  transform: translateY(-6px);
+  transition: transform 0.3s ease;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .lapida-card--adviser { order: 0; }
+}
+@media (max-width: 600px) {
+  .lapida-card, .lapida-card--adviser { width: 100%; max-width: 300px; }
+  .lapida-grid { gap: 32px; }
 }
 
 .hbnav-grid {
@@ -591,4 +689,138 @@
     font-size: 0.68rem;
     max-width: 80px;
   }
+}
+
+/* ─── RESEARCHER MODAL ─── */
+.lapida-card[data-modal] { cursor: pointer; }
+.lapida-card[data-modal]:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+.researcher-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.researcher-modal.is-open { display: flex; }
+
+.researcher-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(5,4,3,0.88);
+  backdrop-filter: blur(8px);
+}
+
+.researcher-modal__box {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(160deg, #1e1c17 0%, #141210 100%);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 40px 36px 36px;
+  max-width: 520px;
+  width: 100%;
+  max-height: 88vh;
+  overflow-y: auto;
+  text-align: center;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.8);
+  animation: modalIn 0.28s cubic-bezier(0.34,1.4,0.64,1) both;
+}
+/* Spider canvas inside modal */
+.modal-spider-canvas {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  border-radius: 12px;
+  z-index: 0;
+}
+/* Keep modal content above canvas */
+.researcher-modal__box > *:not(.modal-spider-canvas):not(.researcher-modal__close) { position: relative; z-index: 1; }
+.researcher-modal__box--gold {
+  background: linear-gradient(160deg, #211c0e 0%, #161206 100%);
+  border-color: rgba(200,169,110,0.18);
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(24px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.researcher-modal__close {
+  position: absolute !important;
+  top: 10px;
+  right: 14px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ddd;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  z-index: 10;
+}
+.researcher-modal__close:hover { background: rgba(255,255,255,0.18); color: #fff; }
+.researcher-modal__close--gold:hover { background: rgba(200,169,110,0.2); color: var(--accent); }
+
+.researcher-modal__photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+  border: 3px solid #555;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+  margin-bottom: 14px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.researcher-modal__photo--gold { border-color: var(--accent); box-shadow: 0 6px 22px rgba(180,145,60,0.45); }
+
+.researcher-modal__role {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #7a7a7a;
+  margin: 0 0 6px;
+}
+.researcher-modal__role--gold { color: var(--accent); opacity: 0.85; }
+
+.researcher-modal__name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.45rem;
+  color: #e8dfc8;
+  margin: 0 0 10px;
+}
+
+.researcher-modal__rule {
+  height: 1px;
+  background: rgba(255,255,255,0.1);
+  margin: 0 auto 18px;
+  width: 60px;
+}
+.researcher-modal__rule--gold { background: rgba(200,169,110,0.35); }
+
+.researcher-modal__body {
+  text-align: justify;
+  color: #b5a898;
+  font-size: 0.9rem;
+  line-height: 1.75;
+}
+.researcher-modal__body p { margin: 0 0 14px; }
+.researcher-modal__body p:last-child { margin-bottom: 0; }
+
+@media (max-width: 540px) {
+  .researcher-modal__box { padding: 32px 20px 28px; }
+  .researcher-modal__name { font-size: 1.2rem; }
 }

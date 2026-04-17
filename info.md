@@ -1,0 +1,11 @@
+Si John R. Papares ay kasalukuyang kumukuha ng kursong Batsilyer ng Pansekundaryang Edukasyon medyor sa Filipino sa Camarines Norte State College–Abano Campus. Ipinanganak siya noong Hunyo 25, 2005 sa Daet, Camarines Norte at kasalukuyang naninirahan sa P-3 Guinacutan, Vinzons, Camarines Norte.
+
+Natapos niya ang kanyang sekundaryang edukasyon sa Vinzons Pilot High School noong 2023 at ang kanyang elementarya sa Guinacutan Elementary School noong 2017. Bilang isang mag-aaral sa larangan ng edukasyon, nakatuon ang kanyang interes sa pagpapalawak ng kaalaman sa wikang Filipino at sa epektibong pagtuturo nito sa mga mag-aaral. Layunin niyang maging isang mahusay at responsableng guro na makatutulong sa paghubog ng kakayahan at pagpapahalaga ng kabataang Pilipino.
+
+
+Si Rose Ann M. Cruel, dalawampung (20) taong gulang at nagmula sa Barangay Bagumbayan, sa Bayan ng Paracale, Camarines Norte. Nagtapos siya ng elementarya sa Bagumbayan Elementary School, at sekondarya sa Paracale National High School, nagtapos ng may karangalan at kasalukuyang nagpapakadalubhasa sa Batsilyer ng Sekondaryang Edukasyon medyor sa Filipino sa Camarines Norte State College, Kolehiyo ng edukasyon. Siya ay mahilig sumayaw, umawit nagnanais na mapalawak ang kaalaman sa larangan ng Filipino. Naniniwala siyang sa bawat hanapbuhay, may gawain at danas na nakahimlay, na nagpapatunay at ang ating kultura'y binubuhay tungo sa magandang hinaharap, nang may tiyaga, sipag at pagsisikap.
+
+
+Si Dr. Ryan S. Rodriguez ay isang Tagapayo at ganap na Doktor ng Pilosopiya sa Filipino. Nagtapos siya ng Batsilyer sa Pansekundaryang Edukasyon major sa Filipino noong 2005 sa La Consolacion College–Daet. Ipinagpatuloy niya ang kanyang pag-aaral at nakamit ang Master of Arts in Education major sa Filipino sa Universidad de Santa Isabel sa Lungsod ng Naga.
+
+Sa kanyang akademikong paglalakbay, nakatanggap siya ng mga parangal tulad ng Magna Cum Laude, Best Thesis, at Best Presenter noong 2016. Taong 2024 nang kanyang makamit ang Doctor of Philosophy in Filipino sa Bicol University sa Lungsod ng Legazpi, kung saan kinilala rin ang kanyang disertasyon bilang  pinakamahusay.

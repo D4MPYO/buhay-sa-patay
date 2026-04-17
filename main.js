@@ -50,6 +50,7 @@ const mobileMenu = document.getElementById('mobileMenu');
 
 hamburger.addEventListener('click', () => {
   mobileMenu.classList.toggle('open');
+  hamburger.classList.toggle('active');
 });
 
 // Close mobile menu when a link is clicked
@@ -285,5 +286,41 @@ if (navbar) {
 
   if (fpStop) {
     fpStop.addEventListener('click', function () { stopCurrent(); });
+  }
+})();
+
+// ─── RESEARCHER MODALS ───
+(function () {
+  var cards = document.querySelectorAll('[data-modal]');
+  cards.forEach(function (card) {
+    card.addEventListener('click', openModal);
+    card.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal.call(card); }
+    });
+  });
+
+  document.querySelectorAll('.researcher-modal__overlay, .researcher-modal__close').forEach(function (el) {
+    el.addEventListener('click', closeModal);
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  function openModal() {
+    var id = this.getAttribute('data-modal');
+    var modal = document.getElementById(id);
+    if (!modal) return;
+    modal.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    var close = modal.querySelector('.researcher-modal__close');
+    if (close) close.focus();
+  }
+
+  function closeModal() {
+    document.querySelectorAll('.researcher-modal.is-open').forEach(function (m) {
+      m.classList.remove('is-open');
+    });
+    document.body.style.overflow = '';
   }
 })();
