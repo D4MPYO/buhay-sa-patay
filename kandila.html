@@ -64,7 +64,7 @@
       <section class="detail-section" id="danas">
         <div class="detail-section-label">
           <span class="dsec-number">01</span>
-          <h2>Danas</h2>
+          <h2>Danas <button class="audio-btn" data-audio="Assets/Audio/Danas-Kandila.mp3" aria-label="Pakinggan ang seksyon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg></button></h2>
         </div>
         <div class="detail-section-body">
           <img class="news-img" src="Assets/candle_1.jpg" alt="Paggawa ng kandila">
@@ -79,7 +79,7 @@
       <section class="detail-section" id="gawi">
         <div class="detail-section-label">
           <span class="dsec-number">02</span>
-          <h2>Gawi</h2>
+          <h2>Gawi <button class="audio-btn" data-audio="Assets/Audio/Gawi-Kandila.mp3" aria-label="Pakinggan ang seksyon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg></button></h2>
         </div>
         <div class="detail-section-body">
           <img class="news-img" src="Assets/candle_2.jpg" alt="Pang-araw-araw na gawain sa kandila">
@@ -93,7 +93,7 @@
       <section class="detail-section" id="paniniwala">
         <div class="detail-section-label">
           <span class="dsec-number">03</span>
-          <h2>Paniniwala</h2>
+          <h2>Paniniwala <button class="audio-btn" data-audio="Assets/Audio/Paniniwa-Kandila.mp3" aria-label="Pakinggan ang seksyon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg></button></h2>
         </div>
         <div class="detail-section-body">
           <img class="news-img" src="Assets/another_candle1 (1).jpg" alt="Kandila at paniniwala">
@@ -108,7 +108,7 @@
       <section class="detail-section" id="pamahiin">
         <div class="detail-section-label">
           <span class="dsec-number">04</span>
-          <h2>Pamahiin</h2>
+          <h2>Pamahiin <button class="audio-btn" data-audio="Assets/Audio/Pamahiin-Kandila.mp3" aria-label="Pakinggan ang seksyon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg></button></h2>
         </div>
         <div class="detail-section-body">
           <img class="news-img" src="Assets/another_candle_with_lapida.jpg" alt="Kandila at lapida">
@@ -175,6 +175,22 @@
       <p class="footer-copy">© 2026 Buhay sa Patay. Lahat ng karapatan ay nakalaan.</p>
     </div>
   </footer>
+
+  <!-- ─── FLOATING AUDIO PLAYER ─── -->
+  <div id="floatingPlayer" class="floating-player" aria-hidden="true">
+    <div class="fp-label">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+      <span id="fpTitle">—</span>
+    </div>
+    <div class="fp-controls">
+      <button id="fpPlayPause" class="fp-btn" aria-label="Play / Pause">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+      </button>
+      <button id="fpStop" class="fp-btn fp-btn-stop" aria-label="Itigil">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h12v12H6z"/></svg>
+      </button>
+    </div>
+  </div>
 
   <script src="main.js"></script>
 </body>

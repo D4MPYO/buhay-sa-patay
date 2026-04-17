@@ -160,3 +160,130 @@ if (navbar) {
     body.insertBefore(imgEl, body.firstChild);
   });
 })();
+
+// ─── AUDIO BUTTONS + FLOATING PLAYER ───
+(function () {
+  const iconPlay  = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>`;
+  const iconPause = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>`;
+
+  let currentAudio   = null;
+  let currentBtn     = null;
+  let currentTitle   = '';
+  let btnIsVisible   = true;
+
+  // Floating player elements (only present on detail pages)
+  const fp          = document.getElementById('floatingPlayer');
+  const fpTitle     = document.getElementById('fpTitle');
+  const fpPlayPause = document.getElementById('fpPlayPause');
+  const fpStop      = document.getElementById('fpStop');
+
+  // ── Show / hide floating player ──────────────────────────────
+  function updateFloatingPlayer() {
+    if (!fp) return;
+    // Show when: there is an active audio (playing OR paused) AND the H2 button is scrolled out of view
+    if (currentAudio && !btnIsVisible) {
+      fpTitle.textContent = currentTitle;
+      fpPlayPause.innerHTML = currentAudio.paused ? iconPlay : iconPause;
+      fp.classList.add('fp-visible');
+      fp.setAttribute('aria-hidden', 'false');
+    } else {
+      fp.classList.remove('fp-visible');
+      fp.setAttribute('aria-hidden', 'true');
+    }
+  }
+
+  // ── Stop everything ──────────────────────────────────────────
+  function stopCurrent() {
+    if (currentAudio) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0;
+    }
+    if (currentBtn) {
+      currentBtn.classList.remove('playing');
+      currentBtn.innerHTML = iconPlay;
+    }
+    currentAudio = null;
+    currentBtn   = null;
+    currentTitle = '';
+    updateFloatingPlayer();
+  }
+
+  // ── IntersectionObserver: track if current button is visible ─
+  const observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.target === currentBtn) {
+        btnIsVisible = entry.isIntersecting;
+        updateFloatingPlayer();
+      }
+    });
+  }, { threshold: 0.5 });
+
+  // ── Wire each audio button ───────────────────────────────────
+  document.querySelectorAll('.audio-btn').forEach(function (btn) {
+    // Get the H2 text as title (text before the button)
+    observer.observe(btn);
+
+    btn.addEventListener('click', function () {
+      const src = btn.dataset.audio;
+      // Derive section title from H2 text (strip button text)
+      const h2 = btn.closest('h2');
+      const sectionTitle = h2 ? h2.childNodes[0].textContent.trim() : '';
+
+      // Clicked same button that's playing → pause
+      if (currentBtn === btn && currentAudio && !currentAudio.paused) {
+        currentAudio.pause();
+        btn.classList.remove('playing');
+        btn.innerHTML = iconPlay;
+        updateFloatingPlayer();
+        return;
+      }
+
+      // Clicked same button that's paused → resume
+      if (currentBtn === btn && currentAudio && currentAudio.paused) {
+        currentAudio.play();
+        btn.classList.add('playing');
+        btn.innerHTML = iconPause;
+        updateFloatingPlayer();
+        return;
+      }
+
+      // Different button → stop current, start new
+      stopCurrent();
+
+      const audio = new Audio(src);
+      currentAudio = audio;
+      currentBtn   = btn;
+      currentTitle = sectionTitle;
+      btnIsVisible = true; // assume visible since user just clicked it
+
+      btn.classList.add('playing');
+      btn.innerHTML = iconPause;
+
+      audio.play().catch(function () { stopCurrent(); });
+      audio.addEventListener('ended', function () { stopCurrent(); });
+
+      updateFloatingPlayer();
+    });
+  });
+
+  // ── Floating player controls ─────────────────────────────────
+  if (fpPlayPause) {
+    fpPlayPause.addEventListener('click', function () {
+      if (!currentAudio) return;
+      if (currentAudio.paused) {
+        currentAudio.play();
+        if (currentBtn) { currentBtn.classList.add('playing'); currentBtn.innerHTML = iconPause; }
+        fpPlayPause.innerHTML = iconPause;
+      } else {
+        currentAudio.pause();
+        if (currentBtn) { currentBtn.classList.remove('playing'); currentBtn.innerHTML = iconPlay; }
+        fpPlayPause.innerHTML = iconPlay;
+        updateFloatingPlayer();
+      }
+    });
+  }
+
+  if (fpStop) {
+    fpStop.addEventListener('click', function () { stopCurrent(); });
+  }
+})();
