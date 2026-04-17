@@ -467,10 +467,10 @@ a  { text-decoration: none; color: inherit; }
 }
 
 /* per-card images */
-#danas::before  { background-image: url('Assets/bg_3.jpg'); }
-#gawi::before   { background-image: url('Assets/bg_4.jpg'); }
-#paniniwala::before { background-image: url('Assets/another_bg.jpg'); }
-#pamahiin::before   { background-image: url('Assets/bg_1.jpg'); }
+#danas::before  { background-image: url('Assets/danas_bg.jpg'); }
+#gawi::before   { background-image: url('Assets/gawi_bg.jpg'); }
+#paniniwala::before { background-image: url('Assets/paniniwala_bg.jpg'); }
+#pamahiin::before   { background-image: url('Assets/pamahiin_bg.jpg'); }
 
 /* card content sits above the pseudo-elements */
 .card > * { position: relative; z-index: 2; }

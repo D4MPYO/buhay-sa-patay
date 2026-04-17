@@ -485,21 +485,22 @@
 }
 
 .hbnav-grid {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
   margin-bottom: 36px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hbnav-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   text-decoration: none;
   transition: transform 0.25s ease;
-  min-width: 90px;
 }
 
 .hbnav-item:not(.hbnav-item--active):hover {
@@ -573,5 +574,21 @@
 
   .detail-main {
     padding: 32px 0 40px;
+  }
+
+  .hbnav-grid {
+    gap: 12px;
+    max-width: 340px;
+  }
+
+  .hbnav-icon {
+    width: 52px;
+    height: 52px;
+    font-size: 1.4rem;
+  }
+
+  .hbnav-item span {
+    font-size: 0.68rem;
+    max-width: 80px;
   }
 }
