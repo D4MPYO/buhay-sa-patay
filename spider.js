@@ -76,6 +76,58 @@
   }
 
   /* ══════════════════════════════
+     SCENE: detail content pages
+  ══════════════════════════════ */
+  var detailMain = document.querySelector('.detail-main');
+  var detailContent = document.querySelector('.detail-main .detail-content');
+  if (detailMain && detailContent) {
+    var detailCanvas = document.createElement('canvas');
+    detailCanvas.id  = 'spider-canvas-detail';
+    detailCanvas.style.cssText =
+      'position:absolute;top:0;left:0;width:100%;height:100%;' +
+      'pointer-events:none;z-index:0;';
+
+    if (getComputedStyle(detailMain).position === 'static') detailMain.style.position = 'relative';
+    detailMain.style.overflow = 'hidden';
+    detailContent.style.position = 'relative';
+    detailContent.style.zIndex = '1';
+
+    detailMain.insertBefore(detailCanvas, detailMain.firstChild);
+    var dctx = detailCanvas.getContext('2d');
+
+    function resizeDetail() {
+      detailCanvas.width  = detailMain.clientWidth;
+      detailCanvas.height = detailMain.scrollHeight;
+    }
+    resizeDetail();
+    window.addEventListener('resize', resizeDetail);
+
+    function frameDetail(ts) {
+      var t  = ts / 1000;
+      var w  = detailCanvas.width;
+      var h  = detailCanvas.height;
+      dctx.clearRect(0, 0, w, h);
+
+      var webR = Math.min(Math.min(w, h) * 0.24, 240);
+      drawCornerWeb(dctx, 0, 0, webR, 8, 5, false);
+      drawCornerWeb(dctx, w, 0, webR, 8, 5, true);
+
+      var anchorX = w * 0.52;
+      var ropeLen = Math.min(h * 0.18, 170);
+      var swing = Math.sin(t * 0.62) * Math.min(w * 0.11, 70);
+      var bob = Math.cos(t * 1.55) * 6;
+      var spiderX = anchorX + swing;
+      var spiderY = ropeLen + bob;
+
+      drawSilk(dctx, anchorX, 0, spiderX, spiderY);
+      drawSpider(dctx, spiderX, spiderY, 8, t * 2.6);
+
+      requestAnimationFrame(frameDetail);
+    }
+    requestAnimationFrame(frameDetail);
+  }
+
+  /* ══════════════════════════════
      SCENE: lapida-grid section
   ══════════════════════════════ */
   var grid = document.querySelector('.lapida-grid');
@@ -122,7 +174,125 @@
     var mctx  = mc.getContext('2d');
     var box   = mc.parentElement;
     var rafId = null;
-    var isGold = box.classList.contains('researcher-modal__box--gold');
+    var walker = box.querySelector('.modal-spider-walker');
+    if (!walker) {
+      walker = document.createElement('div');
+      walker.className = 'modal-spider-walker';
+      walker.setAttribute('aria-hidden', 'true');
+      walker.innerHTML =
+        '<lord-icon ' +
+        'src="https://cdn.lordicon.com/dwewzrml.json" ' +
+        'trigger="loop" ' +
+        'delay="2000" ' +
+        'style="width:88px;height:88px">' +
+        '</lord-icon>';
+      box.appendChild(walker);
+    }
+
+    var walkerX = 10;
+    var walkerY = 8;
+    var walkerVX = 74;
+    var walkerVY = 38;
+    var pauseUntil = 0;
+    var turnStart = 0;
+    var turnFrom = 0;
+    var turnTo = 0;
+    var headingDeg = 0;
+    var lastTs = 0;
+
+    function normalizeDeg(deg) {
+      var d = deg;
+      while (d > 180) d -= 360;
+      while (d < -180) d += 360;
+      return d;
+    }
+
+    function angleFromVelocity(vx, vy) {
+      return normalizeDeg((Math.atan2(vy, vx) * 180 / Math.PI) + 90);
+    }
+
+    function lerpAngle(from, to, t) {
+      var delta = normalizeDeg(to - from);
+      return normalizeDeg(from + delta * t);
+    }
+
+    function nudgeVelocity() {
+      var boostX = (Math.random() * 24) - 12;
+      var boostY = (Math.random() * 20) - 10;
+      walkerVX += boostX;
+      walkerVY += boostY;
+
+      if (Math.abs(walkerVX) < 52) walkerVX = (walkerVX < 0 ? -52 : 52);
+      if (Math.abs(walkerVY) < 28) walkerVY = (walkerVY < 0 ? -28 : 28);
+      walkerVX = Math.max(-110, Math.min(110, walkerVX));
+      walkerVY = Math.max(-90, Math.min(90, walkerVY));
+    }
+
+    function updateWalker(ts) {
+      if (!mc.width) return;
+      if (!lastTs) lastTs = ts;
+      var dt = Math.min((ts - lastTs) / 1000, 0.05);
+      lastTs = ts;
+
+      var walkerWidth = Math.max(walker.offsetWidth || 88, 72);
+      var walkerHeight = Math.max(walker.offsetHeight || 88, 72);
+      var minX = 8;
+      var maxX = Math.max(minX, mc.width - walkerWidth - 8);
+      var minY = 8;
+      var maxY = Math.max(minY, mc.height - walkerHeight - 10);
+
+      if (ts >= pauseUntil) {
+        walkerX += walkerVX * dt;
+        walkerY += walkerVY * dt;
+
+        var bounced = false;
+        if (walkerX >= maxX) {
+          walkerX = maxX;
+          walkerVX = -Math.abs(walkerVX);
+          bounced = true;
+        } else if (walkerX <= minX) {
+          walkerX = minX;
+          walkerVX = Math.abs(walkerVX);
+          bounced = true;
+        }
+
+        if (walkerY >= maxY) {
+          walkerY = maxY;
+          walkerVY = -Math.abs(walkerVY);
+          bounced = true;
+        } else if (walkerY <= minY) {
+          walkerY = minY;
+          walkerVY = Math.abs(walkerVY);
+          bounced = true;
+        }
+
+        if (bounced) {
+          nudgeVelocity();
+          pauseUntil = ts + 280;
+          turnStart = ts;
+          turnFrom = headingDeg;
+          turnTo = angleFromVelocity(walkerVX, walkerVY);
+        }
+      }
+
+      if (ts < pauseUntil) {
+        var turnSpan = Math.max(pauseUntil - turnStart, 1);
+        var turnProg = Math.max(0, Math.min(1, (ts - turnStart) / turnSpan));
+        headingDeg = lerpAngle(turnFrom, turnTo, turnProg);
+      } else {
+        var targetHeading = angleFromVelocity(walkerVX, walkerVY);
+        headingDeg = lerpAngle(headingDeg, targetHeading, Math.min(1, dt * 8));
+      }
+
+      var t = ts / 1000;
+      var walkAmp = (ts < pauseUntil) ? 0.25 : 1;
+      var bobY = Math.sin(t * 7.4) * (1.8 * walkAmp);
+      var tilt = Math.sin(t * 14.2) * (6.5 * walkAmp);
+
+      walker.style.transform =
+        'translate3d(' + walkerX + 'px,' + (walkerY + bobY) + 'px,0) ' +
+        'rotate(' + (headingDeg + tilt) + 'deg)';
+    }
 
     function resizeModal() {
       mc.width  = box.offsetWidth;
@@ -137,6 +307,8 @@
       var webR = Math.min(w,h)*0.28;
       drawCornerWeb(mctx,0,0,webR,6,4,false);   /* top-left    */
       drawCornerWeb(mctx,w,0,webR,6,4,true);    /* top-right   */
+
+      updateWalker(ts);
 
       /* small spider crawling along top edge */
       var crawlX = (w*0.1) + (w*0.8) * ((Math.sin(t*0.4)+1)/2);
@@ -153,6 +325,16 @@
       var observer = new MutationObserver(function() {
         if (modalEl.classList.contains('is-open')) {
           resizeModal();
+          walkerX = 10;
+          walkerY = 8;
+          walkerVX = 74;
+          walkerVY = 38;
+          pauseUntil = 0;
+          turnStart = 0;
+          turnFrom = 0;
+          turnTo = 0;
+          headingDeg = angleFromVelocity(walkerVX, walkerVY);
+          lastTs = 0;
           if (!rafId) rafId = requestAnimationFrame(frameModal);
         } else {
           if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
@@ -161,6 +343,13 @@
       });
       observer.observe(modalEl, { attributes: true, attributeFilter: ['class'] });
     }
+
+    window.addEventListener('resize', function () {
+      if (!box.closest('.researcher-modal') || !box.closest('.researcher-modal').classList.contains('is-open')) {
+        return;
+      }
+      resizeModal();
+    });
   });
 
 })();
