@@ -1,4 +1,43 @@
 // ─── EMOJI RAIN ───
+// Force all Lordicons to autoplay in loop mode (including dynamically added icons).
+(function () {
+  function enforceLoop(icon) {
+    if (!icon || icon.tagName !== 'LORD-ICON') return;
+    icon.setAttribute('trigger', 'loop');
+  }
+
+  function scan(root) {
+    if (!root) return;
+    if (root.tagName === 'LORD-ICON') {
+      enforceLoop(root);
+      return;
+    }
+    if (root.querySelectorAll) {
+      root.querySelectorAll('lord-icon').forEach(enforceLoop);
+    }
+  }
+
+  function init() {
+    scan(document);
+
+    var obs = new MutationObserver(function (mutations) {
+      mutations.forEach(function (m) {
+        m.addedNodes.forEach(function (node) {
+          if (node && node.nodeType === 1) scan(node);
+        });
+      });
+    });
+
+    obs.observe(document.documentElement, { childList: true, subtree: true });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init, { once: true });
+  } else {
+    init();
+  }
+})();
+
 function triggerRain(emoji) {
   // Create or reuse rain container
   let container = document.getElementById('rainContainer');
