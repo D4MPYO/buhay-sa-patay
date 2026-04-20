@@ -679,19 +679,43 @@
   .lapida-card--adviser { order: 0; }
 
   .researcher-pumpkin-deco {
-    display: none;
+    display: block;
+    bottom: -26px;
+  }
+
+  .researcher-pumpkin-deco lord-icon {
+    width: 100px !important;
+    height: 100px !important;
+  }
+
+  .researcher-pumpkin-deco--left {
+    left: -58px;
+  }
+
+  .researcher-pumpkin-deco--right {
+    right: -58px;
   }
 
   .researcher-candle-deco {
     display: block;
-    transform: translateX(-50%) scale(0.72);
+    transform: translateX(-50%) scale(0.66);
     transform-origin: bottom center;
-    bottom: -90px;
+    bottom: -56px;
+  }
+
+  .researcher-candle-deco--mananaliksik {
+    width: 350px;
+    bottom: -52px;
+  }
+
+  .researcher-candle-deco--professor {
+    width: 238px;
+    bottom: -52px;
   }
 
   .lapida-card,
   .lapida-card--adviser {
-    margin-bottom: 48px;
+    margin-bottom: 34px;
   }
 }
 @media (max-width: 600px) {
@@ -699,13 +723,40 @@
   .lapida-grid { gap: 32px; }
 
   .researcher-candle-deco {
-    transform: translateX(-50%) scale(0.58);
-    bottom: -98px;
+    transform: translateX(-50%) scale(0.54);
+    bottom: -50px;
+  }
+
+  .researcher-candle-deco--mananaliksik {
+    width: 304px;
+    bottom: -46px;
+  }
+
+  .researcher-candle-deco--professor {
+    width: 214px;
+    bottom: -48px;
+  }
+
+  .researcher-pumpkin-deco {
+    bottom: -20px;
+  }
+
+  .researcher-pumpkin-deco lord-icon {
+    width: 82px !important;
+    height: 82px !important;
+  }
+
+  .researcher-pumpkin-deco--left {
+    left: -34px;
+  }
+
+  .researcher-pumpkin-deco--right {
+    right: -34px;
   }
 
   .lapida-card,
   .lapida-card--adviser {
-    margin-bottom: 58px;
+    margin-bottom: 26px;
   }
 }
 
